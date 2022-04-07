@@ -1,21 +1,41 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { SafeAreaView, StyleSheet, TextInput, Button } from "react-native";
 
-export default function App() {
+function App () {
+  const [email, setEmail] = React.useState();
+  const [password, setPassword] = React.useState();
+
+   const onPressFunction = () => {
+      setEmail("")
+      setPassword("")
+   }
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView>
+      <TextInput
+        style={styles.input}
+        onChangeText={setEmail}
+        value={email}
+        maxLength={6}
+      />
+      <TextInput
+        style={styles.input}
+        onChangeText={setPassword}
+        value={password}
+        placeholder="password"
+        keyboardType="numeric"
+        maxLength={6}
+      />
+      <Button onPress={onPressFunction} title="Envoyer"/>
+      </SafeAreaView>
   );
-}
+};
+export default App
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
   },
 });
