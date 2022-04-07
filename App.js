@@ -1,5 +1,5 @@
 import React from "react";
-import { SafeAreaView, StyleSheet, TextInput, Button } from "react-native";
+import { SafeAreaView, StyleSheet, TextInput, Button, Text } from "react-native";
 
 function App () {
   const [email, setEmail] = React.useState();
@@ -11,6 +11,7 @@ function App () {
    }
   return (
     <SafeAreaView>
+      <Text style={styles.centerText}>LOGIN</Text>
       <TextInput
         style={styles.input}
         onChangeText={setEmail}
@@ -25,7 +26,7 @@ function App () {
         keyboardType="numeric"
         maxLength={6}
       />
-      <Button onPress={onPressFunction} title="Envoyer"/>
+      <Button style={styles.button} onPress={onPressFunction} title="Envoyer" />
       </SafeAreaView>
   );
 };
@@ -35,7 +36,20 @@ const styles = StyleSheet.create({
   input: {
     height: 40,
     margin: 12,
+    marginLeft:15,
+    marginRight:15,
     borderWidth: 1,
     padding: 10,
   },
+  centerText : {
+    textAlign:"center",
+    fontWeight:"bold",
+    fontSize: 32,
+    margin:10
+
+  },
+  button : {
+    marginLeft:15,
+    marginRight:15
+  }
 });
